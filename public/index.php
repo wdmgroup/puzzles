@@ -18,7 +18,7 @@ if (isset($_POST["send"])) {
   }  
 
   if (count($errors) == 0) {
-    $to = "godin.aaron@gmail.com"; // your email
+    $to = "xxxx@xxxxx.com"; // your email
     $subject = "[Generated from drinkatpuzles.com] " . $subject;
     
     $from = $name . " <" . $email . ">";
