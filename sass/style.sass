@@ -1,0 +1,92 @@
+@mixin round-corners($radius) 
+  -moz-border-radius: $radius
+  -webkit-border-radius: $radius
+  border-radius: $radius
+
+@mixin vertical-gradient($start, $end)
+  background: $start
+  background: -moz-linear-gradient(top, $start, $end)
+  background: -webkit-linear-gradient(top, $start, $end)
+  background: linear-gradient(top, $start, $end)
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$start', endColorstr='$end')
+
+@mixin radial-gradient($hpos, $vpos, $start-color, $end-color)
+  background-image: -moz-radial-gradient($hpos $vpos, ellipse closest-side, $start-color, $end-color 100%)
+  background-image: -webkit-radial-gradient($hpos $vpos, ellipse closest-side, $start-color, $end-color 100%)
+  background-image: -o-radial-gradient($hpos $vpos, ellipse closest-side, $start-color, $end-color 100%)
+  background-image: -ms-radial-gradient($hpos $vpos, ellipse closest-side, $start-color, $end-color 100%)
+  background-image: radial-gradient($hpos $vpos, ellipse closest-side, $start-color, $end-color 100%)
+
+@mixin simple-box-shadow($offsetx, $offsety, $spread, $color)
+  -moz-box-shadow: $offsetx $offsety $spread $color
+  -webkit-box-shadow: $offsetx $offsety $spread $color
+  box-shadow: $offsetx $offsety $spread $color
+
+body, html
+  margin: 0
+  padding: 0
+  width: 100%
+  height: 100%
+
+body
+  background: #222
+  @include radial-gradient(50%, 50%, #fff, #222)
+  background-repeat: no-repeat
+  background-position: center -150px
+  background-size: 1500px 300px
+  
+  #main
+    font-size: 12pt
+  
+  h1
+    font-family: "Georgia","Times New Roman",Helvetica,Arial,sans-serif
+    font-size: 45pt
+  
+  &, h2, h3, h4
+    font-family: "BebasNeueRegular","Helvetica Neue",Arial,Helvetica,Geneva,sans-serif
+
+hr
+  margin-bottom: 0
+
+h1
+  font-size: 30pt
+  margin-top: 0
+  color: #CC5
+  text-shadow: 1px 1px 3px #000
+  border-bottom: 1px solid black
+
+.container
+  @include round-corners(15px)
+  @include simple-box-shadow(0px, 1px, 4px, #333)
+  background: #FFF
+  margin: auto
+
+#specials
+  .day
+    width: 60px
+    font-weight: bold
+    color: #555
+
+#sponsors
+  img
+    margin: 10px auto 0
+    height: 120px
+    width: 120px
+    display: block
+
+.copyright
+  text-align: center
+
+@media screen and (max-width: 960px)
+  body
+    background-image: none
+    background-color: #FFF
+
+  .container
+    box-shadow: none
+
+.errors h3, .errors li
+  color: #ff0000
+
+.errors li
+  margin: 5px 0
